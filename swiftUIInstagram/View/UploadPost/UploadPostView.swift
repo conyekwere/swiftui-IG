@@ -19,6 +19,7 @@ struct UploadPostView: View {
  
         VStack {
             if postImage == nil {
+                
                 Button(action:{imagePickerPresented.toggle() },label:{
                     Image(systemName: "plus.circle")
                         .resizable()
