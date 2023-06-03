@@ -14,6 +14,7 @@
 		5D52A64A2A11C9C2007B304C /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D52A6492A11C9C2007B304C /* ResetPasswordView.swift */; };
 		5D5348A22A2578890027CCDE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D5348A12A2578890027CCDE /* GoogleService-Info.plist */; };
 		5D5348A42A25805A0027CCDE /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5348A32A25805A0027CCDE /* AuthViewModel.swift */; };
+		5D6ACEE02A2B03DA00AAFC00 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6ACEDF2A2B03DA00AAFC00 /* ImageUploader.swift */; };
 		5D89AE8A2A0957D000765583 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D89AE892A0957D000765583 /* NotificationCell.swift */; };
 		5D89AE8C2A09D4FC00765583 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D89AE8B2A09D4FC00765583 /* ProfileHeaderView.swift */; };
 		5D89AE8E2A0A212A00765583 /* UserStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D89AE8D2A0A212A00765583 /* UserStatView.swift */; };
@@ -56,6 +57,7 @@
 		5D52A6492A11C9C2007B304C /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
 		5D5348A12A2578890027CCDE /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		5D5348A32A25805A0027CCDE /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		5D6ACEDF2A2B03DA00AAFC00 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		5D89AE892A0957D000765583 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
 		5D89AE8B2A09D4FC00765583 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		5D89AE8D2A0A212A00765583 /* UserStatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatView.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		5DD5E5092A075CFC003AE566 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				5D6ACEDF2A2B03DA00AAFC00 /* ImageUploader.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				5DD5E5202A07AA88003AE566 /* SearchView.swift in Sources */,
 				5D52A6462A11C95F007B304C /* RegistrationView.swift in Sources */,
 				5DFCB6EC2A215DE000F1AE3F /* CustomTextField.swift in Sources */,
+				5D6ACEE02A2B03DA00AAFC00 /* ImageUploader.swift in Sources */,
 				5DB4C6722A08AE19004BEAA6 /* PostGridView.swift in Sources */,
 				5DD5E51E2A07AA46003AE566 /* FeedView.swift in Sources */,
 				5DD5E5242A07AAC1003AE566 /* UploadPostView.swift in Sources */,
