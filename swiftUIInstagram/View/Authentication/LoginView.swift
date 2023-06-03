@@ -10,11 +10,14 @@ import SwiftUI
 struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
+    @EnvironmentObject var viewModel: AuthViewModel
     var signInColor = #colorLiteral(red: 0.3490230441, green: 0.1391848922, blue: 0.9731792808, alpha: 1)
     var body: some View {
         NavigationView {
             ZStack {
-                LinearGradient(gradient: Gradient(colors: [Color.pink,Color.purple,Color.blue,]), startPoint: .top, endPoint: .bottom).ignoresSafeArea()
+                LinearGradient(gradient: Gradient(colors: [Color.pink,Color.purple,Color.blue,]),
+                               startPoint: .top, endPoint: .bottom)
+                                .ignoresSafeArea()
                 VStack{
                     Image("text-logo")
                         .resizable()
@@ -52,7 +55,10 @@ struct LoginView: View {
                         
                     }
                     
-                    Button(action:{}, label: {
+                    Button(action:{
+                        viewModel.login()
+                        
+                    }, label: {
                         Text("Sign In")
                             .frame( width: 360 , height: 50)
                             .font(.headline)
@@ -62,7 +68,7 @@ struct LoginView: View {
                             .clipShape(Capsule())
                             .padding()
                     })
-                    Spacer()
+                    Spacer(minLength: 50)
                     NavigationLink(
                         destination: RegistrationView().navigationBarHidden(true), label: {
                             

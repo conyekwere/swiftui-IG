@@ -16,7 +16,7 @@ struct CustomSecureField: View {
             if text.isEmpty {
                 placeholder
                     .foregroundColor(Color(.init(white: 1, alpha: 0.8)))
-                    .padding(.leading,40)
+                    .padding(.leading,28)
             }
             HStack {
                 Image(systemName: "lock")

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainTabView: View {
+
     var body: some View {
         NavigationView {
             TabView{
@@ -35,7 +36,17 @@ struct MainTabView: View {
             .accentColor(.black)
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Home")
+            .navigationBarItems(leading: logoutButton)
         }
+    }
+    var logoutButton: some View {
+        Button(action: {
+            AuthViewModel.shared.signout()
+        }, label: {
+            Text("logout")
+            Image(systemName: "gearshape.fill")
+                .foregroundColor(.black)
+        })
     }
 }
 

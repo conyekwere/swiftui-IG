@@ -15,6 +15,8 @@ struct RegistrationView: View {
     @Environment(\.presentationMode) var mode
     var signUpColor = #colorLiteral(red: 0.3490230441, green: 0.1391848922, blue: 0.9731792808, alpha: 1)
     
+    
+    @EnvironmentObject var viewModel: AuthViewModel
     @State private var selectedImage:UIImage?
     @State var profileImage: Image?
     
@@ -109,7 +111,10 @@ struct RegistrationView: View {
                     
                     
                 }
-                Button(action:{}, label: {
+                Button(
+                    action:{
+                        viewModel.register(withEmail: email, password: password)
+                }, label: {
                     Text("Sign Up")
                         .frame( width: 360 , height: 50)
                         .font(.headline)
