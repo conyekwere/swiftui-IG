@@ -7,15 +7,15 @@
 
 import SwiftUI
 
+import Kingfisher
+
 struct UserCell: View {
+    let user: User
     var body: some View {
         HStack {
         // image
-        AsyncImage(url: URL(string: "https://source.unsplash.com/random/?latin")){ image in
-            image.resizable()
-            } placeholder: {
-            ProgressView()
-            }
+            KFImage(URL(string: user.profileImageUrl))
+            .resizable()
             .scaledToFill()
             .frame(width: 48, height: 48)
             .clipShape(Circle())
@@ -23,10 +23,10 @@ struct UserCell: View {
             
         // VStack -> username, fullname
             VStack(alignment: .leading){
-                Text("Agrito3")
+                Text(user.username)
                     .font(.system(size: 14, weight: .semibold))
                 
-                Text("Angel Rio")
+                Text(user.fullname)
                     .font(.system(size: 14))
             }
             Spacer()
@@ -34,8 +34,3 @@ struct UserCell: View {
     }
 }
 
-struct UserCell_Previews: PreviewProvider {
-    static var previews: some View {
-        UserCell()
-    }
-}
