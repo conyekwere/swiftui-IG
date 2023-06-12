@@ -13,7 +13,6 @@ struct SearchView: View {
     @ObservedObject var viewModel = SearchViewModel()
     var body: some View {
         ScrollView {
-            
             //search bar
             SearchBar(text: $searchText, isEditing: $inSeachMode)
                 .padding()
@@ -25,7 +24,6 @@ struct SearchView: View {
                     PostGridView()
                 }
             }
-
         }
     }
 }
