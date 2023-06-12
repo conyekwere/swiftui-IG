@@ -15,4 +15,8 @@ import FirebaseFirestoreSwift
     let fullname: String
     @DocumentID var id: String?
     //let uid: String
+     
+     var isCurrentUser: Bool {return AuthViewModel.shared.userSession?.uid == id}
+     
+     //if user logged in id matches one of the user ids  make true
 }

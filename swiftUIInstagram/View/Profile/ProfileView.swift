@@ -9,20 +9,17 @@ import SwiftUI
 
 struct ProfileView: View {
     private let viewHeight = UIScreen.main.bounds.height / 3
+    
+    let user: User
+    
     var body: some View {
         ScrollView{
             LazyVStack{
-                ProfileHeaderView()
+                ProfileHeaderView(user:user)
                     .padding([.bottom,.top])
                     .frame(height: viewHeight - 32)
                 PostGridView()
             }
         }
-    }
-}
-
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileView()
     }
 }
