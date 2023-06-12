@@ -6,25 +6,23 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct ProfileHeaderView: View {
     var viewPadding:CGFloat = 24
     private let viewHeight = UIScreen.main.bounds.height / 3
-    @State private var isProfileUser = false
+    let user: User
     var body: some View {
         LazyVStack(alignment:.leading) {
             HStack() {
                 ZStack {
-                    AsyncImage(url: URL(string: "https://source.unsplash.com/random/?latin")){ image in
-                        image.resizable()
-                    } placeholder: {
-                        ProgressView()
-                    }
+                    KFImage(URL(string: user.profileImageUrl))
+                    .resizable()
                     .scaledToFill()
                     .frame(width: 80, height: 80)
                     .clipShape(Circle())
                     
-                    if isProfileUser {
+                    if user.isCurrentUser {
                         Circle()
                             .frame(width:30, height: 30)
                             .foregroundColor(Color(.white))
@@ -52,7 +50,7 @@ struct ProfileHeaderView: View {
                 }
             }
             
-            Text("Cameron Pentro")
+            Text(user.fullname)
                 .font(.system(size: 18, weight: .semibold))
                 .frame( height: 30)
             Text("Social Good")
@@ -60,14 +58,8 @@ struct ProfileHeaderView: View {
                 .frame( height: 10)
                 .padding(.bottom,viewPadding)
             
-            ProfileActionButtonView()
+            ProfileActionButtonView(isCurrentUser: user.isCurrentUser)
             
         }.padding(.horizontal,viewPadding)
-    }
-}
-
-struct ProfileHeaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileHeaderView()
     }
 }

@@ -16,7 +16,11 @@ struct ContentView: View {
                 LoginView()
             }
             else {
-                MainTabView()
+                if let user  = viewModel.currentUser{
+                    MainTabView(user: user)
+                }
+                // define user for profile and type check that a user is loged in
+                // the issue is that this is saved only when you leave the app 
             }
             // if not logged in show login
             // else show main interface
