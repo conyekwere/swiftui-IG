@@ -9,6 +9,12 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
+enum UploadType {
+    case profile
+    case post
+    func filePath(for filename:String -> StorageReference){}
+    
+}
 
 struct ImageUploader {
     static func uploadImage(image:UIImage,completion:@escaping(String) -> Void){
