@@ -14,8 +14,8 @@ import FirebaseFirestoreSwift
     let profileImageUrl: String
     let fullname: String
     @DocumentID var id: String?
-    //let uid: String
-     
+     var isFollowed: Bool? = false
+     //isFollowed for client side rendering.toggle that switches depending on the user 
      var isCurrentUser: Bool {return AuthViewModel.shared.userSession?.uid == id}
      
      //if user logged in id matches one of the user ids  make true

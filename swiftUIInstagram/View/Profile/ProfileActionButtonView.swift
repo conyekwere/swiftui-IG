@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ProfileActionButtonView: View {
     @ObservedObject var viewModel: ProfileViewModel
-    var isFollowed = false
+    var isFollowed: Bool {return viewModel.user.isFollowed ?? false}
+        // deault value of false because it's an optional 
     var body: some View {
         GeometryReader { geometry in
             let stackWidth = geometry.size.width 
@@ -37,7 +38,7 @@ struct ProfileActionButtonView: View {
             }
             else{
                 HStack(spacing:8) {
-                    Button(action:{viewModel.unfollow()}, label: {
+                    Button(action:{isFollowed ? viewModel.unfollow() : viewModel.follow()}, label: {
                         Text(isFollowed ? "Following" : "Follow")
                     })
                     .frame( width: stackWidth/2 - 4 , height: 40)
