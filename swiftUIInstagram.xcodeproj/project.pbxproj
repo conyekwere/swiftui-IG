@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D1E49302A38307D001D2D09 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E492F2A38307D001D2D09 /* ProfileViewModel.swift */; };
 		5D52A6402A108950007B304C /* ProfileActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D52A63F2A108950007B304C /* ProfileActionButtonView.swift */; };
 		5D52A6422A118218007B304C /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D52A6412A118218007B304C /* ImagePicker.swift */; };
 		5D52A6442A11C94E007B304C /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D52A6432A11C94E007B304C /* LoginView.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D1E492F2A38307D001D2D09 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		5D52A63F2A108950007B304C /* ProfileActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileActionButtonView.swift; sourceTree = "<group>"; };
 		5D52A6412A118218007B304C /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		5D52A6432A11C94E007B304C /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 		5DD5E51A2A075F01003AE566 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				5D1E492F2A38307D001D2D09 /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				5D6ACEE42A32D72F00AAFC00 /* User.swift in Sources */,
 				5D52A6402A108950007B304C /* ProfileActionButtonView.swift in Sources */,
 				5D5348A42A25805A0027CCDE /* AuthViewModel.swift in Sources */,
+				5D1E49302A38307D001D2D09 /* ProfileViewModel.swift in Sources */,
 				5DB4C6782A08B711004BEAA6 /* UserListView.swift in Sources */,
 				5D89AE8A2A0957D000765583 /* NotificationCell.swift in Sources */,
 				5D52A6442A11C94E007B304C /* LoginView.swift in Sources */,

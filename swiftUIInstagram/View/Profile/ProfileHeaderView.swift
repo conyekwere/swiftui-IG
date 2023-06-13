@@ -11,18 +11,18 @@ import Kingfisher
 struct ProfileHeaderView: View {
     var viewPadding:CGFloat = 24
     private let viewHeight = UIScreen.main.bounds.height / 3
-    let user: User
+    @ObservedObject var  viewModel: ProfileViewModel
     var body: some View {
         LazyVStack(alignment:.leading) {
             HStack() {
                 ZStack {
-                    KFImage(URL(string: user.profileImageUrl))
+                    KFImage(URL(string: viewModel.user.profileImageUrl))
                     .resizable()
                     .scaledToFill()
                     .frame(width: 80, height: 80)
                     .clipShape(Circle())
                     
-                    if user.isCurrentUser {
+                    if viewModel.user.isCurrentUser {
                         Circle()
                             .frame(width:30, height: 30)
                             .foregroundColor(Color(.white))
@@ -50,7 +50,7 @@ struct ProfileHeaderView: View {
                 }
             }
             
-            Text(user.fullname)
+            Text(viewModel.user.fullname)
                 .font(.system(size: 18, weight: .semibold))
                 .frame( height: 30)
             Text("Social Good")
@@ -58,7 +58,7 @@ struct ProfileHeaderView: View {
                 .frame( height: 10)
                 .padding(.bottom,viewPadding)
             
-            ProfileActionButtonView(isCurrentUser: user.isCurrentUser)
+            ProfileActionButtonView(viewModel: viewModel)
             
         }.padding(.horizontal,viewPadding)
     }

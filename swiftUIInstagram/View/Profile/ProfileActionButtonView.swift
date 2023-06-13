@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ProfileActionButtonView: View {
-    let isCurrentUser :Bool
+    @ObservedObject var viewModel: ProfileViewModel
     var isFollowed = false
     var body: some View {
         GeometryReader { geometry in
             let stackWidth = geometry.size.width 
-            if isCurrentUser {
+            if viewModel.user.isCurrentUser {
                 HStack(spacing:8) {
                     Button(action:{}, label: {
                         Text("Edit profile")
@@ -37,7 +37,7 @@ struct ProfileActionButtonView: View {
             }
             else{
                 HStack(spacing:8) {
-                    Button(action:{}, label: {
+                    Button(action:{viewModel.unfollow()}, label: {
                         Text(isFollowed ? "Following" : "Follow")
                     })
                     .frame( width: stackWidth/2 - 4 , height: 40)

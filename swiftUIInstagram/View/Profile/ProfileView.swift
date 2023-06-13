@@ -11,11 +11,17 @@ struct ProfileView: View {
     private let viewHeight = UIScreen.main.bounds.height / 3
     
     let user: User
-    
+    @ObservedObject var viewModel: ProfileViewModel
+    // cant do this need too put user in init @ObservedObject var viewModel = ProfileViewModel(user: user)
+    init(user:User){
+        self.user = user
+        self.viewModel = ProfileViewModel(user: user)
+        
+    }
     var body: some View {
         ScrollView{
             LazyVStack{
-                ProfileHeaderView(user:user)
+                ProfileHeaderView(viewModel:viewModel)
                     .padding([.bottom,.top])
                     .frame(height: viewHeight - 32)
                 PostGridView()
