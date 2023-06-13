@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ProfileActionButtonView: View {
     @ObservedObject var viewModel: ProfileViewModel
-    var isFollowed = false
+    var isFollowed: Bool {return viewModel.user.isFollowed ?? false}
+        // deault value of false because it's an optional 
     var body: some View {
         GeometryReader { geometry in
             let stackWidth = geometry.size.width 
