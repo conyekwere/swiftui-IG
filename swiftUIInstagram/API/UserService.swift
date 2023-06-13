@@ -27,7 +27,7 @@ struct UserService {
         }
     }
     
-    static func checkIfUserIsFollowed(uid: String) {
+    static func checkIfUserIsFollowed(uid: String, completion: ((Error?) -> Void)?){
         
     }
 }
