@@ -37,7 +37,7 @@ struct ProfileActionButtonView: View {
             }
             else{
                 HStack(spacing:8) {
-                    Button(action:{viewModel.unfollow()}, label: {
+                    Button(action:{isFollowed ? viewModel.unfollow() : viewModel.follow()}, label: {
                         Text(isFollowed ? "Following" : "Follow")
                     })
                     .frame( width: stackWidth/2 - 4 , height: 40)
