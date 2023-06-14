@@ -11,12 +11,12 @@ struct UploadPostView: View {
     @State private var selectedImage:UIImage?
     @State var postImage: Image?
     @State var captionText = ""
-
     @State var imagePickerPresented = false
+    @Binding var tabIndex: Int
+    @ObservedObject var viewModel = UploadPostViewModel()
+    
+    
     var body: some View {
-        
-        
- 
         VStack {
             if postImage == nil {
                 
@@ -56,6 +56,15 @@ struct UploadPostView: View {
                     HStack(spacing:14){
                         
                         Button ( action: {
+                            if let image = selectedImage {
+                                viewModel.uploadPost(caption: captionText, image: image){ _ in
+                                    
+                                    // after uploading image clear image , caption and move navigation to home
+                                    captionText = ""
+                                    postImage = nil
+                                    tabIndex = 0
+                                }
+                            }
                             
                         },label: {
                             Text("Share")
@@ -70,7 +79,8 @@ struct UploadPostView: View {
                         
                         Button ( action: {
                             postImage = nil
-                            
+                            selectedImage = nil
+                            captionText = ""
                         },label: {
                             Text("Cancel")
                                 .font(.system(size:16, weight: .semibold))
@@ -97,12 +107,6 @@ extension UploadPostView{
         /// when closing picker  grab selectedImage image from imageicker and place as post image
         guard let selectedImage = selectedImage else{ return }
         postImage = Image(uiImage: selectedImage)
-    }
-}
-
-struct UploadPostView_Previews: PreviewProvider {
-    static var previews: some View {
-        UploadPostView()
     }
 }
 
