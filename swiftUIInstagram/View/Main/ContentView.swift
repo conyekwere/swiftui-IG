@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var viewModel: AuthViewModel
+    @State var selectedIndex = 0
     
     var body: some View {
         Group{
@@ -17,7 +18,7 @@ struct ContentView: View {
             }
             else {
                 if let user  = viewModel.currentUser{
-                    MainTabView(user: user)
+                    MainTabView(user: user, selectingIndex: $selectedIndex)
                 }
                 // define user for profile and type check that a user is loged in
                 // the issue is that this is saved only when you leave the app 
