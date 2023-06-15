@@ -41,18 +41,23 @@ struct UploadPostView: View {
             }
             else if let imagePosted = postImage{
                 // same as if postImage but with a definied variable
-                HStack(alignment: .top){
-                    imagePosted
-                        .resizable()
-                        .scaledToFill()
-                        .frame( width: 96, height: 96)
-                        .clipped()
-                    
-                    TextField("Enter your caption.", text: $captionText)
-                    
-                }.padding()
                 GeometryReader { geometry in
                     let stackWidth = geometry.size.width
+                    HStack(alignment: .top){
+                        imagePosted
+                            .resizable()
+                            .scaledToFill()
+                            .frame( width: 96, height: 96)
+                            .clipped()
+                        
+                        TextArea(text: $captionText, placeholder: "Enter your caption.")
+                            .frame(width:stackWidth - 110)
+                        
+                    }.padding()
+                }
+                
+                GeometryReader { geometry in
+                    let buttonWidth = geometry.size.width
                     HStack(spacing:14){
                         
                         Button ( action: {
@@ -69,7 +74,7 @@ struct UploadPostView: View {
                         },label: {
                             Text("Share")
                                 .font(.system(size:16, weight: .semibold))
-                                .frame( width: stackWidth/2 - 24 , height: 40)
+                                .frame( width: buttonWidth/2 - 24 , height: 40)
                                 .background(Color(.systemBlue))
                                 .foregroundColor(.white)
                                 .cornerRadius(5)
@@ -84,7 +89,7 @@ struct UploadPostView: View {
                         },label: {
                             Text("Cancel")
                                 .font(.system(size:16, weight: .semibold))
-                                .frame( width: stackWidth/2 - 24 , height: 40)
+                                .frame( width: buttonWidth/2 - 24 , height: 40)
                                 .background(Color(.systemGray6))
                                 .foregroundColor(.black)
                                 .cornerRadius(5)
