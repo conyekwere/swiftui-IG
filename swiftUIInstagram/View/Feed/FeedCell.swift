@@ -6,30 +6,27 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct FeedCell: View {
+    let post: Post
     var body: some View {
         VStack(alignment:.leading){
             // user info
             HStack{
-                AsyncImage(url: URL(string: "https://source.unsplash.com/random/?afro")){ image in
-                    image.resizable()
-                } placeholder: {
-                    ProgressView()
-                }
+                KFImage(URL(string:  post.ownerImageUrl))
+                    .resizable()
                     .scaledToFill()
                     .frame(width: 36, height: 36)
                     .clipped()
                     .cornerRadius(25)
-                Text("Taylor Rolome")
+                Text(post.ownerUsername)
                     .font(.system(size: 14,weight: .semibold))
             }.padding([.leading,.bottom], 8)
             //Post image
-            AsyncImage(url: URL(string: "https://source.unsplash.com/random/?,city")){ image in
-                image.resizable()
-            } placeholder: {
-                ProgressView()
-            }
+            KFImage(URL(string:  post.imageUrl))
+                .resizable()
+
                 .scaledToFill()
                 .frame( maxHeight: 340)
                 .clipped()
@@ -76,15 +73,15 @@ struct FeedCell: View {
             
             //caption
             
-            Text("3 likes")
+            Text("\(post.likes) likes")
                 .font(.system(size: 14, weight: .semibold))
                 .padding(.leading, 8)
                 .padding(.bottom, 2)
             
             HStack{
-                Text("John Reans")
+                Text(post.ownerUsername)
                     .font(.system(size: 14, weight: .semibold)) +
-                Text(" Wow this is an awesome photo!")
+                Text(" \(post.caption)")
                     .font(.system(size: 15))
             } .padding(.horizontal,8)
             Text("3d")
@@ -97,8 +94,3 @@ struct FeedCell: View {
     }
 }
 
-struct FeedCell_Previews: PreviewProvider {
-    static var previews: some View {
-        FeedCell()
-    }
-}
