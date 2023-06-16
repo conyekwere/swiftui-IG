@@ -11,7 +11,14 @@ import Kingfisher
 struct PostGridView: View {
     private let items = [GridItem(),GridItem(),GridItem()]
     private let width = UIScreen.main.bounds.width / 3
-    @ObservedObject var viewModel:SearchViewModel
+    let config: PostGridConfig
+    @ObservedObject var viewModel: PostGridViewModel
+    // init = PostGridViewModel() instead of an instance : PostGridViewModel()  so that you don't have to place viewModel: viewModel in Parent view
+    
+    init(config: PostGridConfig) {
+        self.config = config
+        self.viewModel = PostGridViewModel(config: config)
+    }
     
     var body: some View {
         LazyVGrid(columns: items, spacing: 2) {
