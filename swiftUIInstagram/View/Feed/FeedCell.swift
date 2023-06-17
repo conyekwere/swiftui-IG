@@ -9,22 +9,33 @@ import SwiftUI
 import Kingfisher
 
 struct FeedCell: View {
-    let post: Post
+    @ObservedObject var viewModel : FeedCellViewModel
+  
+    
+    
+    
+    var didLike: Bool { return viewModel.post.didLike ?? false}
+    // unwrap   viewModel.post.didLike?
+    init(viewModel:FeedCellViewModel){
+        self.viewModel = viewModel
+    }
+    
+
     var body: some View {
         VStack(alignment:.leading){
             // user info
             HStack{
-                KFImage(URL(string:  post.ownerImageUrl))
+                KFImage(URL(string:  viewModel.post.ownerImageUrl))
                     .resizable()
                     .scaledToFill()
                     .frame(width: 36, height: 36)
                     .clipped()
                     .cornerRadius(25)
-                Text(post.ownerUsername)
+                Text(viewModel.post.ownerUsername)
                     .font(.system(size: 14,weight: .semibold))
             }.padding([.leading,.bottom], 8)
             //Post image
-            KFImage(URL(string:  post.imageUrl))
+            KFImage(URL(string:  viewModel.post.imageUrl))
                 .resizable()
 
                 .scaledToFill()
@@ -33,11 +44,12 @@ struct FeedCell: View {
             //Post buttons
             HStack(spacing: 16) {
                 Button(action: {
-                    
+                    didLike ? viewModel.unlike() : viewModel.like()
                 }, label: {
-                    Image(systemName: "heart")
+                    Image(systemName: didLike ? "heart.fill" : "heart")
                         .resizable()
                         .scaledToFill()
+                        .foregroundColor(didLike ? .red : .black )
                         .frame(width: 20, height: 20)
                         .font(.system(size: 20))
                         .padding(4)
@@ -73,15 +85,15 @@ struct FeedCell: View {
             
             //caption
             
-            Text("\(post.likes) likes")
+            Text(viewModel.likeString)
                 .font(.system(size: 14, weight: .semibold))
                 .padding(.leading, 8)
                 .padding(.bottom, 2)
             
             HStack{
-                Text(post.ownerUsername)
+                Text(viewModel.post.ownerUsername)
                     .font(.system(size: 14, weight: .semibold)) +
-                Text(" \(post.caption)")
+                Text(" \(viewModel.post.caption)")
                     .font(.system(size: 15))
             } .padding(.horizontal,8)
             Text("3d")
