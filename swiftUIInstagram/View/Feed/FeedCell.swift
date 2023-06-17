@@ -12,9 +12,12 @@ struct FeedCell: View {
     @ObservedObject var viewModel : FeedCellViewModel
   
     
-    init(post:Post){
-     
-        self.viewModel = FeedCellViewModel(post: post)
+    
+    
+    var didLike: Bool { return viewModel.post.didLike ?? false}
+    // unwrap   viewModel.post.didLike?
+    init(viewModel:FeedCellViewModel){
+        self.viewModel = viewModel
     }
     
 
@@ -41,7 +44,7 @@ struct FeedCell: View {
             //Post buttons
             HStack(spacing: 16) {
                 Button(action: {
-                    
+                    didLike ? viewModel.unlike() : viewModel.like()
                 }, label: {
                     Image(systemName: "heart")
                         .resizable()
