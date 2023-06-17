@@ -24,7 +24,7 @@ struct ProfileView: View {
                 ProfileHeaderView(viewModel:viewModel)
                     .padding([.bottom,.top])
                     .frame(height: viewHeight - 32)
-              //  PostGridView(viewModel:viewModel)
+              //  PostGridView(viewModel:viewModel) 
             }
         }
     }
