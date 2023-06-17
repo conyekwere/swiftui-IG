@@ -9,22 +9,30 @@ import SwiftUI
 import Kingfisher
 
 struct FeedCell: View {
-    let post: Post
+    @ObservedObject var viewModel : FeedCellViewModel
+  
+    
+    init(post:Post){
+     
+        self.viewModel = FeedCellViewModel(post: post)
+    }
+    
+
     var body: some View {
         VStack(alignment:.leading){
             // user info
             HStack{
-                KFImage(URL(string:  post.ownerImageUrl))
+                KFImage(URL(string:  viewModel.post.ownerImageUrl))
                     .resizable()
                     .scaledToFill()
                     .frame(width: 36, height: 36)
                     .clipped()
                     .cornerRadius(25)
-                Text(post.ownerUsername)
+                Text(viewModel.post.ownerUsername)
                     .font(.system(size: 14,weight: .semibold))
             }.padding([.leading,.bottom], 8)
             //Post image
-            KFImage(URL(string:  post.imageUrl))
+            KFImage(URL(string:  viewModel.post.imageUrl))
                 .resizable()
 
                 .scaledToFill()
@@ -73,15 +81,15 @@ struct FeedCell: View {
             
             //caption
             
-            Text("\(post.likes) likes")
+            Text("\(viewModel.post.likes) likes")
                 .font(.system(size: 14, weight: .semibold))
                 .padding(.leading, 8)
                 .padding(.bottom, 2)
             
             HStack{
-                Text(post.ownerUsername)
+                Text(viewModel.post.ownerUsername)
                     .font(.system(size: 14, weight: .semibold)) +
-                Text(" \(post.caption)")
+                Text(" \(viewModel.post.caption)")
                     .font(.system(size: 15))
             } .padding(.horizontal,8)
             Text("3d")
