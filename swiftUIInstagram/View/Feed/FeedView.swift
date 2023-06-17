@@ -14,6 +14,7 @@ struct FeedView: View {
             LazyVStack(spacing: 32) {
                 ForEach(viewModel.posts) { post in
                     FeedCell(viewModel: FeedCellViewModel(post: post))
+
                 }
             }.padding(.top)
         }
