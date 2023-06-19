@@ -6,66 +6,54 @@
 //
 
 import SwiftUI
+import Firebase
 
 class CommentViewModel:ObservableObject {
     @Published var post : Post
-    //Cannot assign value of type "self.post = post" to type '[Post]' because when you are init a model as a arg you can only call an instance
-    
-    
-    
-    var likeString: String {
-        let label =  post.likes == 1 ? "like" : "likes"
-        return "\(post.likes) \(label)"
-    }
-    
-    init(post:Post) {
+    @Published var commets = [Comment]()
+
+    init(post: Post) {
         self.post = post
-        checkIfUserLikedPost()
-    }
-    func like() {
-        guard let uid = AuthViewModel.shared.userSession?.uid else {return}
-        guard let postId = self.post.id else {return}
-        COLLECTION_POSTS.document(postId).collection("post-likes").document(uid).setData([:]){ _ in
-            COLLECTION_USERS.document(uid).collection("user-likes")
-                .document(postId).setData([:]){ _ in
-                    COLLECTION_POSTS.document(postId).updateData(["likes" : self.post.likes + 1])
-                    
-                    self.post.didLike = true
-                    self.post.likes += 1
-                }
-        }
-        print("Liked Post")
-        
+        fetchComments()
     }
     
-    func unlike() {
-        guard post.likes > 0 else { return }
-        guard let uid = AuthViewModel.shared.userSession?.uid else {return}
-        guard let postId = self.post.id else {return}
-        
-        
-        COLLECTION_POSTS.document(postId).collection("post-likes").document(uid).delete { _ in
-            COLLECTION_USERS.document(uid).collection("user-likes")
-                .document(postId).delete{ _ in
-                    COLLECTION_POSTS.document(postId).updateData(["likes" : self.post.likes - 1])
-                    
-                    self.post.didLike = false
-                    self.post.likes -= 1
-                }
-        }
-        
-        print("Unliked Post")
-        
-        
-    }
-    
-    func checkIfUserLikedPost() {
-        guard let uid = AuthViewModel.shared.userSession?.uid else {return}
-        guard let postId = self.post.id else { return }
-        COLLECTION_USERS.document(uid).collection("user-likes").document(postId)
-            .getDocument{ snapshot,  _ in
-                guard let didLike = snapshot?.exists else { return }
-                self.post.didLike = didLike
+    func uploadComment(commentText: String) {
+        guard let user = AuthViewModel.shared.currentUser else {return}
+        guard let postId = post.id else {return}
+        let data: [String: Any] = ["username":user.username,
+                    "profileImageUrl": user.profileImageUrl,
+                    "uid": user.id ?? "",
+                    "timestamp":Timestamp(date:Date()),
+                    "postOwnerUid": post.ownerUid,
+                    "commentText":commentText
+        ]
+        COLLECTION_POSTS.document(postId).collection("post-comments").addDocument(data: data) { error in  if let error = error {
+            print("Debug: Error upoloading comment:  \(error.localizedDescription)")
+            return
             }
+        }
     }
+    
+    
+    func fetchComments() {
+        guard let postId = post.id else {return}
+        let query = COLLECTION_POSTS.document(postId).collection("post-comments").order(by:"timestamp", descending: true)
+        query.addSnapshotListener { snapshot, _ in
+            guard let addedDocs = snapshot?.documentChanges.filter({$0.type == .added}) else
+            { return }
+            
+            self.commets.append(contentsOf:addedDocs.compactMap({ try? $0.document.data(as: Comment.self)
+                
+            }))
+            
+//            snapshot?.documentChanges.forEach({ change in
+//                if change.type == .added{
+//                    guard let comment = try? change.document.data(as: Comment.self) else {return}
+//                    self.commets.append(comment)
+//                }
+//            })
+        }
+        
+    }
+    
 }

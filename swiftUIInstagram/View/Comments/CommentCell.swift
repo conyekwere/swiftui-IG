@@ -6,21 +6,22 @@
 //
 
 import SwiftUI
+import Kingfisher
+
 
 struct CommentCell: View {
+    let comment: Comment
     var body: some View {
         HStack{
-            AsyncImage(url: URL(string: "https://source.unsplash.com/random/?profile")){ image in
-                image.resizable()
-                } placeholder: {
-                ProgressView()
-                }
+
+                KFImage(URL(string: comment.profileImageUrl))
+                .resizable()
                 .scaledToFill()
                 .frame(width: 36, height: 36 )
                 .clipShape(Circle())
             
-            Text("John Lee").font(.system(size: 14, weight: .semibold)) +
-                Text(" Some test comment for now").font(.system(size: 14))
+            Text(comment.username).font(.system(size: 14, weight: .semibold)) +
+            Text(" \(comment.commentText)").font(.system(size: 14))
             
             Spacer()
             
@@ -31,8 +32,3 @@ struct CommentCell: View {
     }
 }
 
-struct CommentCell_Previews: PreviewProvider {
-    static var previews: some View {
-        CommentCell()
-    }
-}

@@ -11,13 +11,13 @@ import Firebase
 
 
 struct Comment: Decodable,Identifiable{
-   @DocumentID var id: String?
-    let ownerUid: String
-    let ownerUsername: String
-    let caption: String
-    var likes: Int
-    let imageUrl: String
+    @DocumentID var id: String?
+    let username: String
+    let profileImageUrl: String
     let timestamp: Timestamp
-    let ownerImageUrl: String
-    var didLike: Bool? = false
+    let postOwnerUid: String
+    let commentText: String
+    let uid: String
+
+
 }
