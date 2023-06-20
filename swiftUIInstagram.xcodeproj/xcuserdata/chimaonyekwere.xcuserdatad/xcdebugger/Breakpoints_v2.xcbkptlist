@@ -3,4 +3,70 @@
    uuid = "F2670B2D-3AEF-4981-B78C-2141F896D1D2"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "44959A50-ED52-4FD5-AFD2-928DFE86F1DC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "swiftUIInstagram/ViewModel/Notifications/NotificationsViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "uploadNotification(toUid:type:post:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "65E34BED-0D3D-4BC2-85CF-5BFD34E3931C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "swiftUIInstagram/ViewModel/Profile/ProfileViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "follow()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "65E34BED-0D3D-4BC2-85CF-5BFD34E3931C - b072dfdcb2cca96a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "swiftUIInstagram.ProfileViewModel.unfollow() -&gt; ()"
+                  moduleName = "swiftUIInstagram"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chimaonyekwere/Desktop/Swift%20Repo/SwiftUI-IG/swiftUIInstagram/swiftUIInstagram/ViewModel/Profile/ProfileViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "56">
+               </Location>
+               <Location
+                  uuid = "65E34BED-0D3D-4BC2-85CF-5BFD34E3931C - 3b203d603fc60510"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in swiftUIInstagram.ProfileViewModel.follow() -&gt; ()"
+                  moduleName = "swiftUIInstagram"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chimaonyekwere/Desktop/Swift%20Repo/SwiftUI-IG/swiftUIInstagram/swiftUIInstagram/ViewModel/Profile/ProfileViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "60">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

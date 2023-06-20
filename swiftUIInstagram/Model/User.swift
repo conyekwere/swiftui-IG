@@ -7,7 +7,7 @@
 
 import FirebaseFirestoreSwift
 
-
+// Decodable makes object out items
  struct User: Decodable,Identifiable{
     let username: String
     let email: String

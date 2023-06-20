@@ -9,17 +9,18 @@ import Firebase
 typealias FsCompletion = ((Error?) -> Void)?
 struct UserService {
     
-    static func follow(uid: String, completion: ((Error?) -> Void)?) {
+    static func follow(uid: String, completion: FsCompletion) {
         guard let currentUid = AuthViewModel.shared.userSession?.uid else {return}
         
         COLLECTION_FOLLOWING.document(currentUid)
             .collection("user-following").document(uid).setData([:]){ _ in
             COLLECTION_FOLLOWERS.document(uid).collection("user-followers").document(currentUid).setData([:], completion: completion)
                 
-                /// .setData([:]) we are setign a blank docuent to teack a list of id
+                /// .setData([:]) we are seetign a blank docuent to track a list of id
+
         }
     }
-    static func unfollow(uid: String,completion: ((Error?) -> Void)?) {
+    static func unfollow(uid: String,completion: FsCompletion) {
         guard let currentUid = AuthViewModel.shared.userSession?.uid else {return}
         COLLECTION_FOLLOWING.document(currentUid).collection("user-following").document(uid).delete(){ _ in
             COLLECTION_FOLLOWERS.document(uid).collection("user-followers").document(currentUid).delete(completion: completion)
