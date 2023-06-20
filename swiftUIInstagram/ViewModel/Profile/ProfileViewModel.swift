@@ -21,6 +21,9 @@ class ProfileViewModel: ObservableObject {
             print("DEBUG:Successfully folowed \(self.user.username) ..")
             self.user.isFollowed = true
         }
+        NotificationsViewModel.uploadNotification(toUid: uid, type:.follow) { error in
+            print("You followed \(self.user.username)")
+        }
     }
     
     func unfollow(){

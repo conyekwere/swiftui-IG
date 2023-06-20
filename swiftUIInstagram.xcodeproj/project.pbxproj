@@ -59,10 +59,10 @@
 		5DE04EE32A3EB44400006E0A /* CommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE04EE22A3EB44400006E0A /* CommentView.swift */; };
 		5DE04EE52A3EB45600006E0A /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE04EE42A3EB45600006E0A /* CommentCell.swift */; };
 		5DE04EE92A3EB4A700006E0A /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE04EE82A3EB4A700006E0A /* CommentViewModel.swift */; };
-		5DE04EEB2A3EB4C500006E0A /* CommentCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE04EEA2A3EB4C500006E0A /* CommentCellViewModel.swift */; };
 		5DE04EED2A3EB53D00006E0A /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE04EEC2A3EB53D00006E0A /* Comment.swift */; };
 		5DE04EEF2A3EC2C500006E0A /* CustomInputView .swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE04EEE2A3EC2C500006E0A /* CustomInputView .swift */; };
 		5DE04EF12A414DE000006E0A /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE04EF02A414DE000006E0A /* Notification.swift */; };
+		5DE04EF32A415E1D00006E0A /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE04EF22A415E1D00006E0A /* NotificationsViewModel.swift */; };
 		5DFCB6EC2A215DE000F1AE3F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFCB6EB2A215DE000F1AE3F /* CustomTextField.swift */; };
 		5DFCB6EE2A21602F00F1AE3F /* CustomSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DFCB6ED2A21602F00F1AE3F /* CustomSecureField.swift */; };
 		5DFCB7062A25492300F1AE3F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5DFCB7052A25492300F1AE3F /* Kingfisher */; };
@@ -111,10 +111,10 @@
 		5DE04EE22A3EB44400006E0A /* CommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentView.swift; sourceTree = "<group>"; };
 		5DE04EE42A3EB45600006E0A /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		5DE04EE82A3EB4A700006E0A /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
-		5DE04EEA2A3EB4C500006E0A /* CommentCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCellViewModel.swift; sourceTree = "<group>"; };
 		5DE04EEC2A3EB53D00006E0A /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		5DE04EEE2A3EC2C500006E0A /* CustomInputView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomInputView .swift"; sourceTree = "<group>"; };
 		5DE04EF02A414DE000006E0A /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		5DE04EF22A415E1D00006E0A /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
 		5DFCB6EB2A215DE000F1AE3F /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		5DFCB6ED2A21602F00F1AE3F /* CustomSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSecureField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -220,7 +220,6 @@
 				5D719A602A39857200BDE770 /* UploadPostViewModel.swift */,
 				5D483B532A3C14DA0036F351 /* PostGridViewModel.swift */,
 				5DE04EE82A3EB4A700006E0A /* CommentViewModel.swift */,
-				5DE04EEA2A3EB4C500006E0A /* CommentCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -344,6 +343,7 @@
 		5DD5E5182A075EE8003AE566 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
+				5DE04EF22A415E1D00006E0A /* NotificationsViewModel.swift */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -458,11 +458,11 @@
 				5D483B562A3D3B520036F351 /* FeedCellViewModel.swift in Sources */,
 				5DB4C6762A08B6E6004BEAA6 /* UserCell.swift in Sources */,
 				5DD5E5202A07AA88003AE566 /* SearchView.swift in Sources */,
+				5DE04EF32A415E1D00006E0A /* NotificationsViewModel.swift in Sources */,
 				5D52A6462A11C95F007B304C /* RegistrationView.swift in Sources */,
 				5DFCB6EC2A215DE000F1AE3F /* CustomTextField.swift in Sources */,
 				5D6ACEE02A2B03DA00AAFC00 /* ImageUploader.swift in Sources */,
 				5DE04EF12A414DE000006E0A /* Notification.swift in Sources */,
-				5DE04EEB2A3EB4C500006E0A /* CommentCellViewModel.swift in Sources */,
 				5DE04EE92A3EB4A700006E0A /* CommentViewModel.swift in Sources */,
 				5DB4C6722A08AE19004BEAA6 /* PostGridView.swift in Sources */,
 				5DD5E51E2A07AA46003AE566 /* FeedView.swift in Sources */,

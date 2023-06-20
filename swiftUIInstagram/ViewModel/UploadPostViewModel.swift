@@ -25,6 +25,7 @@ class UploadPostViewModel: ObservableObject {
                         "ownerUsername": user.username] as [String: Any]
             COLLECTION_POSTS.addDocument(data: data, completion: completion)
             print("DEBUG: Uploaded post")
+            
         }
     }
     

@@ -21,7 +21,7 @@ struct Notification: Decodable,Identifiable{
 }
 
 
-enum notificationType: Int,Decodable {
+enum NotificationType: Int,Decodable {
     case like
     case comment
     case follow
@@ -33,7 +33,6 @@ enum notificationType: Int,Decodable {
             return "commented on one of your posts."
         case .follow:
             return "started following you"
-        default:  return ""
         }
         
     }
