@@ -6,71 +6,57 @@
 //
 
 import SwiftUI
+
+import Kingfisher
+
+
 private let frameSize:CGFloat = 40
 struct NotificationCell: View {
+    let notification : Notification
     @State private var showPostImage = true
     var body: some View {
         HStack(alignment:.center){
         // image
-        AsyncImage(url: URL(string: "https://source.unsplash.com/random/?asian")){ image in
-            image.resizable()
-            } placeholder: {
-            ProgressView()
-            }
+
+        KFImage(URL(string: notification.profileImageUrl))
+            .resizable()
             .scaledToFill()
             .frame(width: frameSize, height: frameSize)
             .clipShape(Circle())
             .clipped()
-            
-            
-            if showPostImage {
+            VStack(spacing:0){
+                Text(notification.username)
+                    .font(.system(size: 14, weight: .semibold)) +
+                Text(" \(notification.type.notificationMessage)")
                 
-                
-                    Text("Johnathan Park Zhou")
-                        .font(.system(size: 14, weight: .semibold)) +
-                    Text(" liked one of your post")
                     .font(.system(size: 14)) +
-                    Text(" 1d")
-                        .font(.system(size: 14))
+                Text(" 1d")
+                
+                    .font(.system(size: 14))
                     .foregroundColor(Color(.systemGray))
-              
+            }
 
                 Spacer()
-                AsyncImage(url: URL(string: "https://source.unsplash.com/random/?beauty")){ image in
-                    image.resizable()
-                    
-                } placeholder: {
-                    ProgressView()
-                }  .scaledToFill()
+            if notification.type != .follow {
+                KFImage(URL(string: notification.profileImageUrl))
+                    .resizable()
+                    .scaledToFill()
                     .frame( width: frameSize, height: frameSize)
                     .clipped()
             }
-            else{
-                Text("Horan Xiu")
-                    .font(.system(size: 14, weight: .semibold)) + Text(" would like to follow you.")
-                    .font(.system(size: 14)) + Text(" 1d")
-                    .font(.system(size: 14))
-                    .foregroundColor(Color(.systemGray))
-                
+            else {
 
-                Spacer()
                 Button(action:{}, label: {
                     Text("Follow")
                         .padding(.horizontal,20)
                         .padding(.vertical,8)
                         .background(Color(.systemBlue))
                         .foregroundColor(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .clipShape(Capsule())
                         .font(.system(size: 14, weight: .semibold))
                 })
             }
         }.padding(.horizontal)
             
-    }
-}
-
-struct NotificationCell_Previews: PreviewProvider {
-    static var previews: some View {
-        NotificationCell()
     }
 }

@@ -9,16 +9,17 @@ import SwiftUI
 import Firebase
 
 class NotificationsViewModel:ObservableObject {
-    @Published var commets = [Notification]()
+    @Published var notifications = [Notification]()
     //@Published var post : Post
 
     init() {
-        fetchNotifications()
+        if  (AuthViewModel.shared.currentUser != nil) {
+            fetchNotifications()
+        }
     }
    // static meaning uploadNotification function is public and don't need to init viewmodel func
- static func uploadNotification(toUid uid: String, type: NotificationType, post:Post? = nil,completion: FsCompletion) {
+ static func uploadNotification(toUid uid: String, type: NotificationType, post:Post? = nil) {
         guard let user = AuthViewModel.shared.currentUser else {return}
-        guard let uid = user.id else {return}
         //guard let postId = post.id else {return}
         var data: [String: Any] = [
                     "username":user.username,
@@ -32,12 +33,7 @@ class NotificationsViewModel:ObservableObject {
             data["postId"] = id
                 
         }
-            COLLECTION_NOTIFICATIONS.document(uid).collection("user-notifications").addDocument(data: data) { error in if let error = error {
-                print("DEBUG: Uploaded \(type.notificationMessage)")
-                return
-                }
-            }
-
+            COLLECTION_NOTIFICATIONS.document(uid).collection("user-notifications").addDocument(data: data)
         }
     
     
@@ -45,27 +41,15 @@ class NotificationsViewModel:ObservableObject {
     
     func fetchNotifications() {
         
-//        guard let postId = post.id else {return}
-//        let query = COLLECTION_POSTS.document(postId).collection("post-comments").order(by:"timestamp", descending: true)
-//        query.addSnapshotListener { snapshot, _ in
-//            guard let addedDocs = snapshot?.documentChanges.filter({$0.type == .added}) else
-//            { return }
-//
-//            self.commets.append(contentsOf:addedDocs.compactMap({ try? $0.document.data(as: Comment.self)
-//
-//            }))
-            
-//            snapshot?.documentChanges.forEach({ change in
-//                if change.type == .added{
-//                    guard let comment = try? change.document.data(as: Comment.self) else {return}
-//                    self.commets.append(comment)
-//                }
-//            })
-            
-            
- //       }
+        guard let uid = AuthViewModel.shared.userSession?.uid else {return}
         
+        let query = COLLECTION_NOTIFICATIONS.document(uid).collection("user-notifications").order(by:"timestamp", descending: true)
+                
+        query.getDocuments { snapshot, _ in
+            guard let documents = snapshot?.documents else { return }
+            self.notifications = documents.compactMap({try? $0.data(as: Notification.self) })
+            
+            print(self.notifications)
+        }
     }
-    
-    
 }
