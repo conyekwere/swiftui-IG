@@ -30,9 +30,8 @@ class FeedCellViewModel:ObservableObject {
                 .document(postId).setData([:]){ _ in
                     COLLECTION_POSTS.document(postId).updateData(["likes" : self.post.likes + 1])
                     
-                    NotificationsViewModel.uploadNotification(toUid: self.post.ownerUid, type: .like,post: self.post) { error in
-                        print("\(uid) liked post")
-                    }
+                    NotificationsViewModel.uploadNotification(toUid:self.post.ownerUid, type: .like,post: self.post)
+                    
                     self.post.didLike = true
                     self.post.likes += 1
                 }

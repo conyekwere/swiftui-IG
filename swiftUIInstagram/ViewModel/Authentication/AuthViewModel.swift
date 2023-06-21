@@ -43,12 +43,12 @@ class AuthViewModel: ObservableObject{
             
             Auth.auth().createUser(withEmail: email, password: password) { result, error in
                 if let errorState = error{
-                    print(errorState.localizedDescription)
+                  //  print(errorState.localizedDescription)
                     return
                 }
                 guard let user = result?.user else {return}
                 self.userSession = user
-                print("Successfully registered user")
+              
                //result and error is a from a completion parameter
                 
                 let data = ["email": email,
@@ -57,7 +57,7 @@ class AuthViewModel: ObservableObject{
                             "profileImageUrl": imageUrl,
                             "uid": user.uid]
                 COLLECTION_USERS.document(user.uid).setData(data){ _ in
-                    print("Successfully uploaded user data...")
+                   
                     self.userSession = user
                     self.fetchUser()
                 }
