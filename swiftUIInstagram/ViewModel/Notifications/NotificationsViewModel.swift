@@ -13,9 +13,7 @@ class NotificationsViewModel:ObservableObject {
     //@Published var post : Post
 
     init() {
-        if  (AuthViewModel.shared.currentUser != nil) {
             fetchNotifications()
-        }
     }
    // static meaning uploadNotification function is public and don't need to init viewmodel func
  static func uploadNotification(toUid uid: String, type: NotificationType, post:Post? = nil) {
@@ -42,7 +40,6 @@ class NotificationsViewModel:ObservableObject {
     func fetchNotifications() {
         
         guard let uid = AuthViewModel.shared.userSession?.uid else {return}
-        
         let query = COLLECTION_NOTIFICATIONS.document(uid).collection("user-notifications").order(by:"timestamp", descending: true)
                 
         query.getDocuments { snapshot, _ in
