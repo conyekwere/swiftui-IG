@@ -13,10 +13,14 @@ struct NotificationView: View {
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 20) {
-                ForEach(viewModel.notifications){ notification in
-                    NavigationLink(destination: FeedView() , label: {NotificationCell(notification: notification)
-                        .padding(.top)})
-                    
+                
+                if viewModel.notifications.isEmpty {
+                    EmptyNotification()
+                } else {
+                    ForEach(viewModel.notifications){ notification in
+                        NavigationLink(destination: FeedView() , label: { NotificationCell(notification: notification)
+                            .padding(.top)})
+                    }
                 }
             }
         }
