@@ -18,9 +18,8 @@ struct NotificationView: View {
                     EmptyNotification()
                 } else {
                     ForEach(viewModel.notifications){ notification in
-                        NavigationLink(destination: FeedView() , label: { NotificationCell(notification: notification)
-                            .padding(.top)})
-                    }
+                         NotificationCell(notification: notification)
+                            .padding(.top)}
                 }
             }
         }

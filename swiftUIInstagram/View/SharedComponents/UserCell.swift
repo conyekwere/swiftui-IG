@@ -12,7 +12,7 @@ import Kingfisher
 struct UserCell: View {
     let user: User
     var body: some View {
-        HStack {
+        HStack(alignment: .top) {
         // image
             KFImage(URL(string: user.profileImageUrl))
             .resizable()
@@ -28,7 +28,7 @@ struct UserCell: View {
                 
                 Text(user.fullname)
                     .font(.system(size: 14))
-            }
+            }.frame(alignment:.center)
             Spacer()
         }
     }
