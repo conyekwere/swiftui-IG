@@ -35,9 +35,11 @@ class NotificationCellViewModel:ObservableObject {
     func checkIfUserIsFollowed() {
         guard notification.type == .follow else {return}
         UserService.checkIfUserIsFollowed(uid: notification.uid) { isFollowed in
-            self.notification.isFollowed = false
+            self.notification.isFollowed = isFollowed
         }
     }
+    
+    
     
     func fetchNotificationPost() {
         guard let uid = AuthViewModel.shared.userSession?.uid else {return}
