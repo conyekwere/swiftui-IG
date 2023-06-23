@@ -18,9 +18,10 @@ struct Notification: Decodable,Identifiable{
     let timestamp: Timestamp
     let type: NotificationType
     let uid: String
-    
+    var isCurrentUser: Bool {return AuthViewModel.shared.userSession?.uid == id}
     var isFollowed: Bool? = false
     var post:Post?
+    var user:User?
     //Bool must be optional because in the decodable is looking for a certian structure that has been already placed in the back end 
 }
 

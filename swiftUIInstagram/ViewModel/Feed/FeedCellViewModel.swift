@@ -21,6 +21,7 @@ class FeedCellViewModel:ObservableObject {
     init(post:Post) {
         self.post = post
         checkIfUserLikedPost()
+        fetchUserPost()
     }
     func like() {
         guard let uid = AuthViewModel.shared.userSession?.uid else {return}
@@ -70,4 +71,15 @@ class FeedCellViewModel:ObservableObject {
                 self.post.didLike = didLike
             }
     }
+    
+    
+    func fetchUserPost() {
+
+        COLLECTION_USERS.document(post.ownerUid)
+            .getDocument { snapshot, _ in
+            self.post.user = try? snapshot?.data(as: User.self)
+           // print("DEBUG:User post is \(self.post.user?.username) ")
+        }
+    }
+    
 }

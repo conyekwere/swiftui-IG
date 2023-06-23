@@ -16,6 +16,7 @@ struct NotificationCell: View {
     @ObservedObject var viewModel: NotificationCellViewModel
 
     var isFollowed: Bool {return viewModel.notification.isFollowed ?? false}
+    var isCurrentUser: Bool {return viewModel.notification.user?.isCurrentUser ?? false}
     
     init(notification: Notification) {
         self.viewModel = NotificationCellViewModel(notification: notification)
@@ -24,46 +25,55 @@ struct NotificationCell: View {
     // or init(viewModel:  NotificationCellViewModel) {self.viewModel = viewModel} but you would have to pass te same on parent class
     @State private var showPostImage = true
     var body: some View {
+        
+        if isCurrentUser == false {
         HStack(alignment:.center){
-        // image
-
-        KFImage(URL(string: viewModel.notification.profileImageUrl))
-            .resizable()
-            .scaledToFill()
-            .frame(width: frameSize, height: frameSize)
-            .clipShape(Circle())
-            .clipped()
-            VStack(spacing:0){
-                Text(viewModel.notification.username)
-                    .font(.system(size: 14, weight: .semibold)) +
-                Text(" \(viewModel.notification.type.notificationMessage)")
-                
-                    .font(.system(size: 14)) +
-                Text(" 1d")
-                
-                    .font(.system(size: 14))
-                    .foregroundColor(Color(.systemGray))
-            }.multilineTextAlignment(.leading)
-                .frame(
-                    minWidth: 0,
-                    maxWidth: .infinity,
-                    minHeight: 0,
-                    maxHeight: .infinity,
-                    alignment: .leading
-                )
-
-
-                Spacer()
+      
+            
+            if let user = viewModel.notification.user{
+                NavigationLink(destination: ProfileView(user: user)) {
+                    KFImage(URL(string: viewModel.notification.profileImageUrl))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: frameSize, height: frameSize)
+                        .clipShape(Circle())
+                        .clipped()
+                    VStack(spacing:0){
+                        Text(viewModel.notification.username)
+                            .font(.system(size: 14, weight: .semibold)) +
+                        Text(" \(viewModel.notification.type.notificationMessage)")
+                        
+                            .font(.system(size: 14)) +
+                        Text(" 1d")
+                            .font(.system(size: 14))
+                            .foregroundColor(Color(.systemGray))
+                    }.multilineTextAlignment(.leading)
+                        .frame(
+                            minWidth: 0,
+                            maxWidth: .infinity,
+                            minHeight: 0,
+                            maxHeight: .infinity,
+                            alignment: .leading
+                        )
+                        .padding(.leading,8)
+                }
+            }
+            
+            Spacer()
+            
+            
             if viewModel.notification.type != .follow {
                 
                 if let post = viewModel.notification.post{
-                    KFImage(URL(string: post.imageUrl))
-                        .resizable()
-                        .scaledToFill()
-                        .frame( width: frameSize, height: frameSize)
-                        .clipped()
+                    NavigationLink(destination: FeedCell(viewModel: FeedCellViewModel(post: post))){
+                        KFImage(URL(string: post.imageUrl))
+                            .resizable()
+                            .scaledToFill()
+                            .frame( width: frameSize, height: frameSize)
+                            .clipped()
+                    }
                 }
-
+                
             }
             else {
                 
@@ -81,6 +91,6 @@ struct NotificationCell: View {
                 })
             }
         }.padding(.horizontal)
-            
+        }
     }
 }
