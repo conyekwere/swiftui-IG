@@ -43,15 +43,27 @@ struct NotificationCell: View {
                 
                     .font(.system(size: 14))
                     .foregroundColor(Color(.systemGray))
-            }
+            }.multilineTextAlignment(.leading)
+                .frame(
+                    minWidth: 0,
+                    maxWidth: .infinity,
+                    minHeight: 0,
+                    maxHeight: .infinity,
+                    alignment: .leading
+                )
+
 
                 Spacer()
             if viewModel.notification.type != .follow {
-                KFImage(URL(string: viewModel.notification.profileImageUrl))
-                    .resizable()
-                    .scaledToFill()
-                    .frame( width: frameSize, height: frameSize)
-                    .clipped()
+                
+                if let post = viewModel.notification.post{
+                    KFImage(URL(string: post.imageUrl))
+                        .resizable()
+                        .scaledToFill()
+                        .frame( width: frameSize, height: frameSize)
+                        .clipped()
+                }
+
             }
             else {
                 
@@ -65,6 +77,7 @@ struct NotificationCell: View {
                         .background(isFollowed ? Color(.systemGray6) : Color(.systemBlue))
                         .clipShape(RoundedRectangle(cornerRadius: 10.0))
                         .font(.system(size: 14, weight: .semibold))
+                    
                 })
             }
         }.padding(.horizontal)

@@ -20,6 +20,7 @@ struct Notification: Decodable,Identifiable{
     let uid: String
     
     var isFollowed: Bool? = false
+    var post:Post?
     //Bool must be optional because in the decodable is looking for a certian structure that has been already placed in the back end 
 }
 
@@ -35,7 +36,7 @@ enum NotificationType: Int,Decodable {
         case .comment:
             return "commented on one of your posts."
         case .follow:
-            return "started following you"
+            return "started following you."
         }
         
     }
