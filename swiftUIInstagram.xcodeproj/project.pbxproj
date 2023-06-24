@@ -241,9 +241,9 @@
 			isa = PBXGroup;
 			children = (
 				5DB4C6732A08AFCC004BEAA6 /* Extentions.swift */,
+				5DFCB6ED2A21602F00F1AE3F /* CustomSecureField.swift */,
 				5DFCB6EB2A215DE000F1AE3F /* CustomTextField.swift */,
 				5D52A6412A118218007B304C /* ImagePicker.swift */,
-				5DFCB6ED2A21602F00F1AE3F /* CustomSecureField.swift */,
 				5D6ACEE12A32C86E00AAFC00 /* Constants.swift */,
 				5D483B4B2A3AE0540036F351 /* TextArea.swift */,
 			);

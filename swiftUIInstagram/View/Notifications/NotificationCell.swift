@@ -44,7 +44,7 @@ struct NotificationCell: View {
                         Text(" \(viewModel.notification.type.notificationMessage)")
                         
                             .font(.system(size: 14)) +
-                        Text(" 1d")
+                        Text(" \(viewModel.timestampString)")
                             .font(.system(size: 14))
                             .foregroundColor(Color(.systemGray))
                     }.multilineTextAlignment(.leading)

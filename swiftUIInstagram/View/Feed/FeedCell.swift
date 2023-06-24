@@ -10,10 +10,7 @@ import Kingfisher
 
 struct FeedCell: View {
     @ObservedObject var viewModel : FeedCellViewModel
-    
-    
-   
-    
+
     var didLike: Bool { return viewModel.post.didLike ?? false}
     // unwrap   viewModel.post.didLike?
     init(viewModel:FeedCellViewModel){
@@ -101,8 +98,8 @@ struct FeedCell: View {
                         .font(.system(size: 14, weight: .semibold)) +
                     Text(" \(viewModel.post.caption)")
                         .font(.system(size: 15))
-                } .padding(.horizontal,8)
-                Text("3d")
+                } .padding(.horizontal,8).lineLimit(1)
+                Text(viewModel.timestampString)
                     .foregroundColor(.gray)
                     .font(.system(size: 14))
                     .padding(.leading, 8)

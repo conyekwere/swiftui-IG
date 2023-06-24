@@ -12,10 +12,13 @@ class CommentViewModel:ObservableObject {
     @Published var post : Post
     @Published var commets = [Comment]()
 
+
+    
     init(post: Post) {
         self.post = post
         fetchComments()
     }
+    
     
     func uploadComment(commentText: String) {
         guard let user = AuthViewModel.shared.currentUser else {return}
