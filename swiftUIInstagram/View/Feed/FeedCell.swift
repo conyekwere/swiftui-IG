@@ -101,7 +101,7 @@ struct FeedCell: View {
                         .font(.system(size: 14, weight: .semibold)) +
                     Text(" \(viewModel.post.caption)")
                         .font(.system(size: 15))
-                } .padding(.horizontal,8)
+                } .padding(.horizontal,8).lineLimit(1)
                 Text(viewModel.timestampString)
                     .foregroundColor(.gray)
                     .font(.system(size: 14))

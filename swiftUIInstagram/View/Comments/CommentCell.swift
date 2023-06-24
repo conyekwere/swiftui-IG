@@ -24,8 +24,7 @@ struct CommentCell: View {
             Text(" \(comment.commentText)").font(.system(size: 14))
             
             Spacer()
-            
-            Text("3m")
+            Text(" \(comment.timestampString ?? " ")")
                 .foregroundColor(.gray)
                 .font(.system(size: 12))
         }.padding(.horizontal)
