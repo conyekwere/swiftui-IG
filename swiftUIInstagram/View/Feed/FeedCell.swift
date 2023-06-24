@@ -10,10 +10,7 @@ import Kingfisher
 
 struct FeedCell: View {
     @ObservedObject var viewModel : FeedCellViewModel
-    
-    
-   
-    
+
     var didLike: Bool { return viewModel.post.didLike ?? false}
     // unwrap   viewModel.post.didLike?
     init(viewModel:FeedCellViewModel){
