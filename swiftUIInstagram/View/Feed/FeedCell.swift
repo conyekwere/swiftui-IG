@@ -102,7 +102,7 @@ struct FeedCell: View {
                     Text(" \(viewModel.post.caption)")
                         .font(.system(size: 15))
                 } .padding(.horizontal,8)
-                Text("3d")
+                Text(viewModel.timestampString)
                     .foregroundColor(.gray)
                     .font(.system(size: 14))
                     .padding(.leading, 8)

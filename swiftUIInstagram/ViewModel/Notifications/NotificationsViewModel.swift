@@ -18,7 +18,7 @@ class NotificationsViewModel:ObservableObject {
    // static meaning uploadNotification function is public and don't need to init viewmodel func
  static func uploadNotification(toUid uid: String, type: NotificationType, post:Post? = nil) {
         guard let user = AuthViewModel.shared.currentUser else {return}
-        //guard let postId = post.id else {return}
+        guard  uid != user.id else {return}
         var data: [String: Any] = [
                     "username":user.username,
                     "profileImageUrl": user.profileImageUrl,
