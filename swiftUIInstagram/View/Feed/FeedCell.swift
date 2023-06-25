@@ -26,6 +26,7 @@ struct FeedCell: View {
                 HStack{
                     if let user = viewModel.post.user  {
                         NavigationLink(destination:  LazyView(ProfileView(user: user))) {
+
                             
                             KFImage(URL(string:  viewModel.post.ownerImageUrl))
                                 .resizable()

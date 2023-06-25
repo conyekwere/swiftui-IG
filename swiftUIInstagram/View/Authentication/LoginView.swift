@@ -11,7 +11,7 @@ struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
     @EnvironmentObject var viewModel: AuthViewModel
-    var signInColor = #colorLiteral(red: 0.3490230441, green: 0.1391848922, blue: 0.9731792808, alpha: 1)
+    var buttonColor = #colorLiteral(red: 0.3490230441, green: 0.1391848922, blue: 0.9731792808, alpha: 1)
     var body: some View {
         NavigationView {
             ZStack {
@@ -43,13 +43,15 @@ struct LoginView: View {
                         
                         HStack{
                             Spacer()
-                            Button(action:{}, label: {
-                                Text("Forgot Password?")
-                                    .font(.system(size: 14, weight: .semibold))
-                                    .foregroundColor(.white)
-                                    .padding(.top)
-                                    .padding(.trailing,40)
-                            })
+   
+                            NavigationLink(
+                                destination: ResetPasswordView(email:$email), label: {
+                                    Text("Forgot Password?")
+                                        .font(.system(size: 14, weight: .semibold))
+                                        .foregroundColor(.white)
+                                        .padding(.top)
+                                        .padding(.trailing,40)
+                                })
                         }
                         
                         
@@ -63,7 +65,7 @@ struct LoginView: View {
                             .frame( width: 360 , height: 50)
                             .font(.headline)
                             .foregroundColor(.white)
-                            .background(Color(signInColor))
+                            .background(Color(buttonColor))
                             .cornerRadius(8)
                             .clipShape(Capsule())
                             .padding()
@@ -87,7 +89,7 @@ struct LoginView: View {
                     
                 }.padding(.top,56)
             }
-        }
+        }.accentColor(.white)
     }
 }
 
