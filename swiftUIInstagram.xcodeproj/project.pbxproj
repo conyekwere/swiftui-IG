@@ -10,6 +10,8 @@
 		5D1E49302A38307D001D2D09 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E492F2A38307D001D2D09 /* ProfileViewModel.swift */; };
 		5D1E49322A383AA7001D2D09 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E49312A383AA7001D2D09 /* UserService.swift */; };
 		5D2106F62A47E9420097F969 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2106F52A47E9420097F969 /* LazyView.swift */; };
+		5D2106F82A482CF30097F969 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2106F72A482CF30097F969 /* EditProfileView.swift */; };
+		5D2106FA2A4830F70097F969 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2106F92A4830F70097F969 /* EditProfileViewModel.swift */; };
 		5D483B4C2A3AE0540036F351 /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D483B4B2A3AE0540036F351 /* TextArea.swift */; };
 		5D483B4E2A3AF63C0036F351 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D483B4D2A3AF63C0036F351 /* Post.swift */; };
 		5D483B502A3AF8550036F351 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D483B4F2A3AF8550036F351 /* FeedViewModel.swift */; };
@@ -75,6 +77,8 @@
 		5D1E492F2A38307D001D2D09 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		5D1E49312A383AA7001D2D09 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		5D2106F52A47E9420097F969 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
+		5D2106F72A482CF30097F969 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		5D2106F92A4830F70097F969 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
 		5D483B4B2A3AE0540036F351 /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
 		5D483B4D2A3AF63C0036F351 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		5D483B4F2A3AF8550036F351 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
@@ -324,6 +328,7 @@
 				5D89AE8B2A09D4FC00765583 /* ProfileHeaderView.swift */,
 				5D89AE8D2A0A212A00765583 /* UserStatView.swift */,
 				5D52A63F2A108950007B304C /* ProfileActionButtonView.swift */,
+				5D2106F72A482CF30097F969 /* EditProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -369,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				5D1E492F2A38307D001D2D09 /* ProfileViewModel.swift */,
+				5D2106F92A4830F70097F969 /* EditProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -480,6 +486,7 @@
 				5D483B542A3C14DA0036F351 /* PostGridViewModel.swift in Sources */,
 				5D52A64A2A11C9C2007B304C /* ResetPasswordView.swift in Sources */,
 				5DD5E50D2A075DDA003AE566 /* ContentView.swift in Sources */,
+				5D2106F82A482CF30097F969 /* EditProfileView.swift in Sources */,
 				5D719A612A39857200BDE770 /* UploadPostViewModel.swift in Sources */,
 				5D52A6422A118218007B304C /* ImagePicker.swift in Sources */,
 				5D483B4C2A3AE0540036F351 /* TextArea.swift in Sources */,
@@ -500,6 +507,7 @@
 				5DB4C6702A089B96004BEAA6 /* SearchBar.swift in Sources */,
 				5DE04EED2A3EB53D00006E0A /* Comment.swift in Sources */,
 				5DD5E5222A07AAA5003AE566 /* NotificationView.swift in Sources */,
+				5D2106FA2A4830F70097F969 /* EditProfileViewModel.swift in Sources */,
 				5D6ACEE42A32D72F00AAFC00 /* User.swift in Sources */,
 				5D52A6402A108950007B304C /* ProfileActionButtonView.swift in Sources */,
 				5D5348A42A25805A0027CCDE /* AuthViewModel.swift in Sources */,

@@ -10,13 +10,14 @@ import SwiftUI
 struct ProfileActionButtonView: View {
     @ObservedObject var viewModel: ProfileViewModel
     var isFollowed: Bool {return viewModel.user.isFollowed ?? false}
-        // deault value of false because it's an optional 
+        // deault value of false because it's an optional
+    @State var showEditProfile = false
     var body: some View {
         GeometryReader { geometry in
             let stackWidth = geometry.size.width 
             if viewModel.user.isCurrentUser {
                 HStack(spacing:8) {
-                    Button(action:{}, label: {
+                    Button(action:{showEditProfile.toggle()}, label: {
                         Text("Edit profile")
                     })
                     .frame( width: stackWidth/2 - 4 , height: 40)
@@ -24,6 +25,9 @@ struct ProfileActionButtonView: View {
                     .background(Color(.systemGray6))
                     .foregroundColor(.black)
                     .cornerRadius(10)
+                    .sheet(isPresented: $showEditProfile) {
+                        EditProfileView(user: $viewModel.user)
+                    }
                     
                     
                     Button(action:{}, label: {

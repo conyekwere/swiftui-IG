@@ -20,5 +20,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "115FF7D6-C0FE-4755-9F90-4D8429CF5964"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "swiftUIInstagram/ViewModel/Profile/EditProfileViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "init(user:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "115FF7D6-C0FE-4755-9F90-4D8429CF5964 - d5df3c5aa76b74ff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "swiftUIInstagram.EditProfileViewModel.__allocating_init(user: swiftUIInstagram.User) -&gt; swiftUIInstagram.EditProfileViewModel"
+                  moduleName = "swiftUIInstagram"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chimaonyekwere/Desktop/Swift%20Repo/SwiftUI-IG/swiftUIInstagram/swiftUIInstagram/ViewModel/Profile/EditProfileViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "25">
+               </Location>
+               <Location
+                  uuid = "115FF7D6-C0FE-4755-9F90-4D8429CF5964 - d40267a7f69b0275"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "swiftUIInstagram.EditProfileViewModel.init(user: swiftUIInstagram.User) -&gt; swiftUIInstagram.EditProfileViewModel"
+                  moduleName = "swiftUIInstagram"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/chimaonyekwere/Desktop/Swift%20Repo/SwiftUI-IG/swiftUIInstagram/swiftUIInstagram/ViewModel/Profile/EditProfileViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "11"
+                  endingLineNumber = "11"
+                  offsetFromSymbolStart = "95">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
