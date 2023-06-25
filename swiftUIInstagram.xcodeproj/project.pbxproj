@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D1E49302A38307D001D2D09 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E492F2A38307D001D2D09 /* ProfileViewModel.swift */; };
 		5D1E49322A383AA7001D2D09 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1E49312A383AA7001D2D09 /* UserService.swift */; };
+		5D2106F62A47E9420097F969 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2106F52A47E9420097F969 /* LazyView.swift */; };
 		5D483B4C2A3AE0540036F351 /* TextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D483B4B2A3AE0540036F351 /* TextArea.swift */; };
 		5D483B4E2A3AF63C0036F351 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D483B4D2A3AF63C0036F351 /* Post.swift */; };
 		5D483B502A3AF8550036F351 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D483B4F2A3AF8550036F351 /* FeedViewModel.swift */; };
@@ -73,6 +74,7 @@
 /* Begin PBXFileReference section */
 		5D1E492F2A38307D001D2D09 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		5D1E49312A383AA7001D2D09 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		5D2106F52A47E9420097F969 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
 		5D483B4B2A3AE0540036F351 /* TextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextArea.swift; sourceTree = "<group>"; };
 		5D483B4D2A3AF63C0036F351 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		5D483B4F2A3AF8550036F351 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				5D52A6412A118218007B304C /* ImagePicker.swift */,
 				5D6ACEE12A32C86E00AAFC00 /* Constants.swift */,
 				5D483B4B2A3AE0540036F351 /* TextArea.swift */,
+				5D2106F52A47E9420097F969 /* LazyView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				5DE04EE92A3EB4A700006E0A /* CommentViewModel.swift in Sources */,
 				5DB4C6722A08AE19004BEAA6 /* PostGridView.swift in Sources */,
 				5DD5E51E2A07AA46003AE566 /* FeedView.swift in Sources */,
+				5D2106F62A47E9420097F969 /* LazyView.swift in Sources */,
 				5DD5E5242A07AAC1003AE566 /* UploadPostView.swift in Sources */,
 				5D483B542A3C14DA0036F351 /* PostGridViewModel.swift in Sources */,
 				5D52A64A2A11C9C2007B304C /* ResetPasswordView.swift in Sources */,
