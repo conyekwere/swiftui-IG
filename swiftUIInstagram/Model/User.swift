@@ -20,7 +20,7 @@ import FirebaseFirestoreSwift
      
      //if user logged in id matches one of the user ids  make true
      
-     let stats: UserStats?
+     var stats: UserStats?
      // make optional since it's wasn't part of the original dictionary
 }
 
@@ -28,6 +28,6 @@ import FirebaseFirestoreSwift
 struct UserStats:Decodable {
     var following: Int
     var posts:Int
-    var follewers: Int
+    var followers: Int
     
 }
