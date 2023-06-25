@@ -54,10 +54,12 @@ struct ProfileHeaderView: View {
             Text(viewModel.user.fullname)
                 .font(.system(size: 18, weight: .semibold))
                 .frame( height: 30)
-            Text("Social Good")
-                .font(.system(size: 18))
-                .frame( height: 10)
-                .padding(.bottom,viewPadding)
+            if let bio = viewModel.user.bio{
+                Text(bio)
+                    .font(.system(size: 18))
+                    .frame( height: 10)
+                    .padding(.bottom,viewPadding)
+            }
             
             ProfileActionButtonView(viewModel: viewModel)
             
